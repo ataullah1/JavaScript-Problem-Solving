@@ -34,4 +34,51 @@ function checkName(name) {
     return 'Bad Name';
   }
 }
-console.log(checkName(['199']));
+// console.log(checkName(['199']));
+
+function deleteInvalids(array) {
+  if (!Array.isArray(array)) {
+    return 'Invalid Your Array. Please Input a Valid Array.';
+  }
+  let output = [];
+  for (const num of array) {
+    if (typeof num === 'number' && !isNaN(num)) {
+      output.push(num);
+    }
+  }
+  return output;
+}
+
+// console.log(
+//   deleteInvalids([
+//     1,
+//     null,
+//     undefined,
+//     18,
+//     -19,
+//     NaN,
+//     '12',
+//     [1, 2],
+//     { ob: 'lala' },
+//   ])
+// );
+
+function password(obj) {
+  let yearLen = obj.birthYear.toString();
+  if (typeof obj.birthYear !== 'number' || yearLen.length !== 4) {
+    return 'Invalid, Please Input Your Valid Birth Year.';
+  } else if (Object.keys(obj).length !== 3) {
+    return 'Invalid, Please Check Your Input.';
+  }
+
+  const username = obj.name.toLowerCase();
+  let site = obj.siteName.split('');
+  site[0] = site[0].toUpperCase();
+  const siteName = site.join('');
+  const birthYear = obj.birthYear;
+
+  const output = `${siteName}#${username}@${birthYear}`;
+  return output;
+}
+
+// console.log(password({ name: 'maisha', birthYear: 2002 }));
