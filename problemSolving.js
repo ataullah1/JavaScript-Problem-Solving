@@ -82,3 +82,28 @@ function password(obj) {
 }
 
 // console.log(password({ name: 'maisha', birthYear: 2002 }));
+
+function monthlySavings(arr, livingCost) {
+  if (!Array.isArray(arr) || typeof livingCost !== 'number') {
+    return 'Invalid input';
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= 3000) {
+      let vat = (arr[i] * 20) / 100;
+      arr[i] -= vat;
+    }
+  }
+
+  let ernSum = 0;
+  for (const ern of arr) {
+    ernSum += ern;
+  }
+  let saving = ernSum - livingCost;
+  if (saving < 0) {
+    return '“earn more”';
+  }
+  return saving;
+}
+
+console.log(monthlySavings(100, [900, 2700, 3400]));
