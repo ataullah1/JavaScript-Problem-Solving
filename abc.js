@@ -10,9 +10,6 @@ function calculateMoney(ticketSale) {
   const profit = totalIncome - totalCost;
   return profit;
 }
-
-// console.log(calculateMoney(93));
-
 function checkName(name) {
   if (typeof name !== 'string') {
     return `invalid`;
@@ -34,8 +31,6 @@ function checkName(name) {
     return 'Bad Name';
   }
 }
-// console.log(checkName('RAFEE'));
-
 function deleteInvalids(array) {
   if (!Array.isArray(array)) {
     return '“Invalid Array”. Please Input a Valid Array.';
@@ -49,8 +44,6 @@ function deleteInvalids(array) {
   return output;
 }
 
-// console.log(deleteInvalids(['1', { num: 2 }, NaN]));
-
 function password(obj) {
   let yearLen = obj.birthYear.toString();
   if (typeof obj.birthYear !== 'number' || yearLen.length !== 4) {
@@ -58,31 +51,29 @@ function password(obj) {
   } else if (Object.keys(obj).length !== 3) {
     return 'Invalid, Please Check Your Input.';
   }
-
   const username = obj.name.toLowerCase();
   let site = obj.siteName.split('');
   site[0] = site[0].toUpperCase();
   const siteName = site.join('');
   const birthYear = obj.birthYear;
-
   const output = `${siteName}#${username}@${birthYear}`;
   return output;
 }
 
-// console.log(password({ name: 'rahat', birthYear: 2002, siteName: 'Facebook' }));
+// console.log(
+//   password({ name: 'kolimuddin', birthYear: 1999, siteName: 'google' })
+// );
 
 function monthlySavings(arr, livingCost) {
   if (!Array.isArray(arr) || typeof livingCost !== 'number') {
     return 'Invalid input';
   }
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] >= 3000) {
       let vat = (arr[i] * 20) / 100;
       arr[i] -= vat;
     }
   }
-
   let ernSum = 0;
   for (const ern of arr) {
     ernSum += ern;
@@ -93,5 +84,4 @@ function monthlySavings(arr, livingCost) {
   }
   return saving;
 }
-
-console.log(monthlySavings(100, [900, 2700, 3400]));
+console.log(monthlySavings([1000, 2000, 4000], 5300));
